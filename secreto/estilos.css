@@ -1,0 +1,23 @@
+body { 
+    background: url(../img/backgound.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    font-family: 'Poppins', sans-serif;
+  }
+
+
+a {
+    color: white;
+}
+
+h3 {    
+    font-size: 25px;
+    color: white;
+}
+
+.img_logo {
+    max-width: 200px;
+    max-height: auto;
+}

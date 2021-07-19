@@ -1,0 +1,79 @@
+<?php session_start();
+
+if(!isset($_SESSION['usuario'])){
+    header('Location: ../secreto/login.php');
+}
+    require_once("../class/classProducto.php");
+    require_once("../class/classUsuarios.php");
+    require_once("../class/classCategoria.php");
+    require_once("../class/classMarca.php");
+    require_once("../configuraciones.php");
+    require_once("../inc/db_connect.php");
+    //require_once("../funciones.php");
+    include("../inc/arrays.php");
+
+
+?>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Panel Adidas</title>
+    
+    <link rel="icon" type="image/png" href="../img/adidas-favicon.ico"/>
+
+    <!--FONTS-->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:800|Roboto:900|Source+Serif+Pro:600" rel="stylesheet">
+    
+    <!--CSS-->
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/estilos.css">
+
+    <script src="../js/jquery-3.3.1.min.js"></script>
+
+</head>
+<body>
+
+    <?php
+    require_once("header_panel.php")
+    ?>
+
+    <?php
+
+        if(!empty($_GET["seccion"])):
+            $seccion = $_GET["seccion"];
+
+            if($seccion == "listado_productos")
+                require_once("secciones/listado_productos.php");
+            else if($seccion == "listado_categorias")
+                require_once("secciones/listado_categorias.php");
+            else if($seccion == "nuevo_producto")
+                require_once("secciones/nuevo_producto.php");
+            else if($seccion == "nueva_categoria")
+                require_once("secciones/nueva_categoria.php");
+            else if($seccion == "listado_marcas")
+                require_once("secciones/listado_marcas.php");
+            else if($seccion == "listado_usuarios")
+                require_once("secciones/listado_usuarios.php");    
+            else
+                require_once("../secciones/error.php");
+        else:
+            require_once("secciones/listado_productos.php");
+        endif;
+
+
+    ?>
+    
+    <?php
+    require_once("footer_panel.php");
+    ?>
+    
+    <!--JS-->
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+
+</body>
+</html>
