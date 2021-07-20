@@ -33,7 +33,7 @@
                         </div>
                     </div>
                     <div class="row mb-3">
-                        <h3>Registrate para poder acceder al panel!</h3>
+                        <h3>¡Registrate para poder iniciar sesión en adidas!</h3>
                     </div>
                     <div class="form_container">
                         <form action="registrarse.php" method="POST">

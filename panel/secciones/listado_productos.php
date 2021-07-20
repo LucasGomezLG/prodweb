@@ -75,6 +75,7 @@
                             <th>Codigo</th>
                             <th>Nombre</th>
                             <th>Imagen</th>
+                            <th>Descripción</th>
                             <th>Acciones</th>
                         </tr>
                     </thead>
@@ -96,7 +97,10 @@
                             </td>                                
                             <td class="align-middle">
                                 <img src="../productos/galeria/<?php echo $row['img']?>" alt="<?php echo $row['nombre']?>" width="70">
-                            </td>        
+                            </td>   
+                            <td class="align-middle">
+                                <?php echo $row['descripcion']?>
+                            </td>      
                             <td class="align-middle" style="width: 180px;">
                                 <form action="borrar_imagen.php" method="post">
                                     <input type="hidden" value="<?= $productos ?>" name="id">

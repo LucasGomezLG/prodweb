@@ -74,7 +74,6 @@
                         <tr>
                             <th>Codigo</th>
                             <th>Nombre</th>
-                            <th>ID Padre</th>
                             <th>Activa</th>
                             <th>Accion</th>                            
                         </tr>
@@ -93,9 +92,6 @@
                             <td class="align-middle">
                                 <?php echo $row['nombre']?>
                             </td>                                
-                            <td class="align-middle">
-                                <?php echo $row['id_padre']?>
-                            </td>
                             <td class="align-middle overflow-auto">
                                 <?php 
                                 

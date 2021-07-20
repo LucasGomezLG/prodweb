@@ -33,7 +33,7 @@
                         </div>
                     </div>
                     <div class="row mb-3">
-                        <h3>Para acceder al Panel debes iniciar sesion!</h3>
+                        <h3>¡Primero inicia sesión!</h3>
                     </div>
                     <div class="d-flex justify-content-center">
                         <form action="login.php" method="POST">

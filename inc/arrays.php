@@ -18,7 +18,7 @@ $navbar[] = [
                 "ruta" => "index.php?seccion=contacto"                
             ];
 $navbar[] = [
-                "nombre" => "Panel",            
+                "nombre" => "Iniciar sesión",            
                 "ruta" => "panel/index.php"                
             ];
 
