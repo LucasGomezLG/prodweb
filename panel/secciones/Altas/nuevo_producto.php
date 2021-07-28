@@ -49,21 +49,37 @@
             <div class="col-6 offset-3">
                 <form action="subir_imagen.php" method="POST" enctype="multipart/form-data" class="bg-dark p-3 mb-5 mt-3">
                     <div class="form-group">
-                        <label for="nombre" class="txt-w">
-                            Nombre
-                        </label>
-                        <input type="text" name="nombre" max="3" id="nombre" class="form-control" placeholder="Ingrese el nombre">
+                        <input type="text" name="nombre" max="3" id="nombre" class="form-control" placeholder="Nombre">
                     </div>
 
+                    <div class="form-row">
+                        <div class="form-group mb-3 col-6">
+                            <input type="dropdown" name="nombre" max="3" id="nombre" class="form-control" placeholder="Marca">
+                        </div>    
+                        <div class="form-group mb-3 col-6">
+                            <input type="text" name="nombre" max="3" id="nombre" class="form-control" placeholder="Categoria">
+                        </div>
+                    </div>
                     <div class="form-group">
-                        <label for="imagen" class="txt-w">
-                            Foto
-                        </label>
+                        <input type="text" name="nombre" max="3" id="nombre" class="form-control" placeholder="Precio $">
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="text" name="nombre" max="3" id="nombre" class="form-control" placeholder="Descripcion">
+                    </div>
+
+                    <div class="form-row ">
+                                <div class="input-group">
+                                    <input type="checkbox" class="form-control-input" id="activo" > 
+                                    <label for="activo"class="control-label txt-w" >Activa</label>  
+                                </div>
+                    </div>
+                    <div class="form-group">
                         <input type="file" accept="image/jpeg" class="form-control-file txt-w mb-2" name="imagen" id="imagen" aria-describedby="help_imagen">
                         <small id="help_imagen" class="form-text text-muted txt-w">La imágen del producto debe estar en formato JPG.</small>
                     </div> 
 
-                    <button type="submit" class="btn btn-success btn-lg btn-block">Subir nuevo producto</button>
+                    <button type="submit" class="btn btn-success btn-lg btn-block">Agregar producto</button>
                 </form>
             </div>
         </div>

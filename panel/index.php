@@ -51,13 +51,17 @@ if(!isset($_SESSION['usuario'])){
             else if($seccion == "listado_categorias")
                 require_once("secciones/listado_categorias.php");
             else if($seccion == "nuevo_producto")
-                require_once("secciones/nuevo_producto.php");
+                require_once("secciones/Altas/nuevo_producto.php");
             else if($seccion == "nueva_categoria")
-                require_once("secciones/nueva_categoria.php");
+                require_once("secciones/Altas/nueva_categoria.php");
             else if($seccion == "listado_marcas")
                 require_once("secciones/listado_marcas.php");
             else if($seccion == "listado_usuarios")
-                require_once("secciones/listado_usuarios.php");    
+                require_once("secciones/listado_usuarios.php"); 
+            else if($seccion == "nuevo_usuario")
+                require_once("secciones/Altas/nuevo_usuario.php");   
+            else if($seccion == "nueva_marca")
+                require_once("secciones/Altas/nueva_marca.php"); 
             else
                 require_once("../secciones/error.php");
         else:

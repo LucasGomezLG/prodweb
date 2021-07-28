@@ -104,7 +104,8 @@
                             <td class="align-middle" style="width: 180px;">
                                 <form action="borrar_imagen.php" method="post">
                                     <input type="hidden" value="<?= $productos ?>" name="id">
-                                    <button type="submit" class="btn btn-danger btn-sm">Borrar</button>
+                                    <button type="submit" class="btn btn-info btn-sm">M</button>
+                                    <button type="submit" class="btn btn-danger btn-sm">X</button>
                                 </form>
                             </td>
                         </tr>

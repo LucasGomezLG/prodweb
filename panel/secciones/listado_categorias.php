@@ -65,7 +65,7 @@
                     <h1 class="text-center mt-4 h1-x">Listado de categorias</h1>
                 </div>
                 <div>                           
-                <a class="btn btn-success float-right mb-2" href="index.php?seccion=nuevo_evento" role="button">Agregar nueva categoria</a>
+                <a class="btn btn-success float-right mb-2" href="index.php?seccion=nueva_categoria" role="button">Agregar nueva categoria</a>
                 </div>
                     
 
@@ -105,7 +105,8 @@
                             <td class="align-middle">
                                 <form action="borrar_evento.php" method="post">
                                     <input type="hidden" value="<?= $eventos ?>" name="id">
-                                    <button type="submit" class="btn btn-danger btn-sm">Borrar</button>
+                                    <button type="submit" class="btn btn-info btn-sm">M</button>
+                                    <button type="submit" class="btn btn-danger btn-sm">X</button>
                                 </form>
                             </td>
                         </tr>

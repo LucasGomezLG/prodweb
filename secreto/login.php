@@ -22,6 +22,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $resultado = $statement->fetch();
     if ($resultado !== false) {
         $_SESSION['usuario'] = $usuario;
+//SELECT usuario,admin FROM `usuarios` WHERE admin=1;
+        if()
+        
         header('Location: ../panel/index.php');
     } else {
         $errores .= '<li>Datos Incorrectos</li>';

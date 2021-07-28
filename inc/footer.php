@@ -7,11 +7,10 @@
             </div>
             <div class="col_half col_last tright">
                 <div class="copyrights-menu copyright-links fright clearfix">
-                    <a href="#">Instagram</a>/
-                    <a href="#">Youtube</a>/
-                    <a href="#">Facebook</a>/
-                    <a href="#">Twitter</a>/
-                    <a href="#">Snapchat</a>
+                    <a href="https://www.instagram.com/adidasar/">Instagram</a>/
+                    <a href="https://www.youtube.com/user/adidas">Youtube</a>/
+                    <a href="https://www.facebook.com/search/top?q=adidas">Facebook</a>/
+                    <a href="https://twitter.com/adidasar?lang=es">Twitter</a>/
                     <br>
                 </div>
             </div>

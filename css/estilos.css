@@ -1,3 +1,7 @@
+body{
+
+    min-height: 100vh;
+}
 .nv-bg {
     background-color: #ECEFF1 !important;
 }
