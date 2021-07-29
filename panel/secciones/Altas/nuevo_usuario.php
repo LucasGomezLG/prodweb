@@ -1,10 +1,11 @@
 <?php 
 
-require_once("../inc/db_connect.php");
-
+$con = new PDO('mysql:host='.$db_host.';dbname='.$db_name.';port='.$db_port,$db_user,$db_pass);
+$con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+$con->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 
 if(!isset($_SESSION['usuario'])){
-    header('Location: index.php');
+    header('Location: ../index.php');
 }
 
 
@@ -15,6 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $password = $_POST["password"];
     $nombre = $_POST["nombre"];
     $apellido = $_POST["apellido"];
+    $adm = $_POST["adm"];
     $usuario = filter_var(strtolower($_POST["usuario"]));
     
     $errores = '';
@@ -39,10 +41,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 
     if ($errores == '') {
-        $sql = "INSERT INTO usuarios(nombre,apellido,usuario,pass,email) VALUES ('$nombre','$apellido','$usuario','$password','$email');";
+        $sql = "INSERT INTO usuarios(nombre,apellido,usuario,pass,email,adm) VALUES ('$nombre','$apellido','$usuario','$password','$email','$adm');";
         $count = $con->exec($sql);
         
-        header("Location: ../listado_usuarios.php");
+        header("Location: ../index.php?seccion=listado_usuarios");
     }
     
 }

@@ -6,7 +6,6 @@
 
 ?>
 
-
 <section id="carga">
     <div class="container">
         <div class="row">

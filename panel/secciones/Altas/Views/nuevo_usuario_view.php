@@ -103,12 +103,8 @@
                             </div>
                             <div class="form-row mb-3 col-6 ">
                                 <div class="form-group mb-3 col-6">
-                                    <input type="checkbox" class="form-control-input" id="activo" > 
-                                    <label for="activo"class="control-label txt-w" >Activa</label>  
-                                </div>
-                                <div class="form-group mb-3 col-6">
-                                    <input type="checkbox" class="form-control-input" id="admin" > 
-                                    <label for="admin"class="control-label txt-w" >Admin</label>  
+                                    <input type="checkbox" class="form-control-input" id="adm" > 
+                                    <label for="adm"class="control-label txt-w" >Admin</label>  
                                 </div>
                             </div>
                             <?php if(!empty($errores)):?>
@@ -120,7 +116,7 @@
                             <?php endif;?>
 
                             <div class="d-flex justify-content-center mt-3">
-                                <button type="submit" class="btn btn-success btn-lg btn-block">Agregar nuevo usuario</button>
+                                <button type="submit" class="btn btn-success btn-lg btn-block" href= "index.php?seccion=listado_usuarios">Agregar nuevo usuario</button>
                             </div>
                         </form>
                     </div>

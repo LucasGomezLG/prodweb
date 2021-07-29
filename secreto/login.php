@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($resultado !== false) {
         $_SESSION['usuario'] = $usuario;
 //SELECT usuario,admin FROM `usuarios` WHERE admin=1;
-        if()
+       
         
         header('Location: ../panel/index.php');
     } else {
