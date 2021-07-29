@@ -38,14 +38,14 @@
         </div>
         <div class="row">
             <div class="col-6 offset-3">
-                <form action="nueva_marca.php" method="POST" class="bg-dark p-3 mb-5 mt-3">
+                <form action="index.php?seccion=nueva_marca" method="POST" class="bg-dark p-3 mb-5 mt-3">
                     <div class="form-group">
                         <input type="text" name="nombre" max="3" id="nombre_marca" class="form-control" placeholder="Nombre de la marca">
                     </div> 
                     <div class="form-row ">
                                 <div class="input-group">
-                                    <input type="checkbox" class="form-control-input" id="activo" > 
-                                    <label for="activo"class="control-label txt-w" >Activa</label>  
+                                    <input type="checkbox" name="check1">
+                                    <label class="control-label txt-w" >Activa</label>  
                                 </div>
                             </div>
                     <button type="submit" class="btn btn-success btn-lg btn-block">Agregar nueva marca</button>

@@ -10,16 +10,21 @@ if(!isset($_SESSION['usuario'])){
 
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-
-    
+ 
     $email = $_POST["email"];
     $password = $_POST["password"];
     $nombre = $_POST["nombre"];
     $apellido = $_POST["apellido"];
-    $adm = $_POST["adm"];
+    
     $usuario = filter_var(strtolower($_POST["usuario"]));
     
     $errores = '';
+    
+    if (isset($_POST['check1'])) {
+        $adm = 1;
+            } else {
+                $adm = 0;
+            }
     
     
     if (empty($email) or empty($usuario) or empty($password)){
@@ -41,12 +46,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 
     if ($errores == '') {
-        $sql = "INSERT INTO usuarios(nombre,apellido,usuario,pass,email,adm) VALUES ('$nombre','$apellido','$usuario','$password','$email','$adm');";
+        $sql = "INSERT INTO usuarios(nombre,apellido,usuario,pass,email,admin) VALUES ('$nombre','$apellido','$usuario','$password','$email','$adm');";
         $count = $con->exec($sql);
         
-        header("Location: ../index.php?seccion=listado_usuarios");
+        header("Location: index.php?seccion=listado_usuarios");
     }
     
 }
 require 'Views/nuevo_usuario_view.php';
-?>
