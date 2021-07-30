@@ -8,21 +8,24 @@ if(!isset($_SESSION['usuario'])){
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     
-    $categoria = $_POST["categoria"];
-    $subcategoria= $_POST["subcategoria"];
-    $categorias = filter_var(strtolower($_POST["categorias"]));
+    $nombre = $_POST["nombre"];
+    
+    if (isset($_POST['check1'])){
+        $active = 1;
+    } else {
+            $active = 0;
+    }
     
     $errores = '';
-    
-    
-    if (empty($categoria) or empty($subcategoria)){
+        
+    if (empty($nombre)){
         $errores .= '<li>Por favor completa los campos.</li>';
         
         
     } else {     
 //charlar esto------------------------------------------------------------
-        $statement = $con->prepare('SELECT * FROM categorias WHERE categoria = :categoria LIMIT 1');
-        $statement->execute(array(':categoria' => $categoria));
+        $statement = $con->prepare('SELECT * FROM categorias WHERE nombre = :nombre LIMIT 1');
+        $statement->execute(array(':nombre' => $nombre));
         $resultado = $statement->fetch();
 
         if($resultado != false) {

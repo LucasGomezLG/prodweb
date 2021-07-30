@@ -1,7 +1,7 @@
 <?php 
     
     if(!defined("ACCESO")){
-        header("Location: ../index.php?seccion=listado_categorias");
+        header("Location: ../index.php?seccion=listado_subcategorias");
     }
 
 ?>
@@ -10,10 +10,10 @@
             if(!empty($_GET["ok"])):
                 $ok = $_GET["ok"];
                 if($ok == "cargado"){
-                    $mensaje = "La categoria ha sido cargada correctamente.";
+                    $mensaje = "La subcategoria ha sido cargada correctamente.";
 
                 }elseif($ok == "borrado"){
-                    $mensaje = "La categoria ".ucfirst(nombre($_GET["nombre"]))." ha sido eliminada correctamente.";
+                    $mensaje = "La subcategoria ".ucfirst(nombre($_GET["nombre"]))." ha sido eliminada correctamente.";
                 }
     ?>
 
@@ -62,13 +62,10 @@
         <div class="row">
             <div class="col-12">
                 <div>
-                    <h1 class="text-center mt-4 h1-x">Listado de categorias</h1>
+                    <h1 class="text-center mt-4 h1-x">Listado de subcategorias</h1>
                 </div>
                 <div>                           
-                <a class="btn btn-success float-right mb-2 ml-5" href="index.php?seccion=nueva_categoria" role="button">Agregar nueva categoria</a>
-                </div>
-                <div>                           
-                <a class="btn btn-info float-right mb-2" href="index.php?seccion=listado_subcategorias" role="button">Ver subcategoria</a>
+                <a class="btn btn-success float-right mb-2 ml-5" href="index.php?seccion=nueva_subcategoria" role="button">Agregar nueva subcategoria</a>
                 </div>
 
                 <table class="table table-striped table-dark table-bordered table-hover text-center mb-5">                            
@@ -76,6 +73,7 @@
                         <tr>
                             <th>Codigo</th>
                             <th>Nombre</th>
+                            <th>Padre</th>
                             <th>Activa</th>
                             <th>Accion</th>                            
                         </tr>
@@ -84,7 +82,7 @@
 
                             <?php 
                             $cat = new Categorias($con);
-                            foreach($cat->getCategorias() as $row){ 
+                            foreach($cat->getSubcategorias() as $row){ 
                             ?>
 
                         <tr>
@@ -93,7 +91,10 @@
                             </td>
                             <td class="align-middle">
                                 <?php echo $row['nombre']?>
-                            </td>                                
+                            </td>     
+                            <td class="align-middle">
+                                <?php echo $row['id_padre']?>
+                            </td>                             
                             <td class="align-middle overflow-auto">
                                 <?php 
                                 

@@ -68,14 +68,15 @@
                     <div class="d-flex justify-content-center mb-3">
                     </div>
                    <div class="form_container">
-                        <form action="nueva_categoria.php" method="POST" class="bg-dark p-3 mb-5 mt-3">
+                        <form action="index.php?seccion=nueva_categoria" method="POST" class="bg-dark p-3 mb-5 mt-3">
 
                         <div class="form-row">
                         <div class="form-group mb-3 col-6">
                             <input type="dropdown" name="nombre" max="3" id="nombre" class="form-control" placeholder="Categoria">
                         </div>    
-                        <div class="form-group mb-3 col-6">
-                            <input type="text" name="nombre" max="3" id="nombre" class="form-control" placeholder="Sub categoria">
+                        <div class="input-group mb-3 col-6">
+                                    <input type="checkbox" name="check1">
+                                    <label class="control-label txt-w" >Activa</label>  
                         </div>
                     </div>
                     

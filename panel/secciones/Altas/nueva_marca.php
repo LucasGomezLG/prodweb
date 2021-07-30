@@ -9,10 +9,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $nombre = $_POST["nombre"];
     
-    if (isset($_POST['check1'])) {
-$active = 1;
-    } else {
-    $active = 0;
+    if (isset($_POST['check1'])){
+                                    $active = 1;
+                                } else {
+                                        $active = 0;
     }
     
     $errores = '';

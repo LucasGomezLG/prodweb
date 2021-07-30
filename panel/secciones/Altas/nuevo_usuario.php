@@ -21,10 +21,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $errores = '';
     
     if (isset($_POST['check1'])) {
-        $adm = 1;
-            } else {
-                $adm = 0;
-            }
+                                    $adm = 1;
+                                 } else {
+                                            $adm = 0;
+    }
     
     
     if (empty($email) or empty($usuario) or empty($password)){
