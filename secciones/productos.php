@@ -80,11 +80,14 @@
                 foreach($prod->getProductos() as $row){ 
                 ?>
                 <div class="col-4 mb-4">
-                    <div class="card">
+                    <div class="card" href="index.php?seccion=detalles">
                         <img src="productos/galeria/<?php echo $row['img']?>" alt="<?php echo $row['nombre']?>" class="img-fluid">
-                        <div class="card-body text-center">                                     
-                        <h4 class="card-title text-center mt-5 pb-0 mb-0"> <?php echo $row['nombre']?></h4>                      
-                        </div>                  
+                            <div class="card-body text-center">                                     
+                                <h4 class="card-title text-center mt-5 pb-0 mb-0"> <?php echo $row['nombre']?></h4>                      
+                            </div>   
+                            <div>                           
+                                <a class="btn btn-info float-right mb-2" href="index.php?seccion=detalles" role="button">Comprar</a>
+                            </div>               
                     </div>
                 </div>     
                 <?php

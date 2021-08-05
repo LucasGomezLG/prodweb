@@ -4,83 +4,86 @@
         header("Location:../index.php?seccion=nuevo_producto");
     }
 
-?>
+$con = new PDO('mysql:host='.$db_host.';dbname='.$db_name.';port='.$db_port,$db_user,$db_pass);
+$con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+$con->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 
-<section id="carga">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <h1 class="text-center h1-x mt-4 mb-4">Cargar producto</h1>
-            </div>    
+if(!isset($_SESSION['usuario'])){
+    header('Location: ../index.php');
+}
 
-                <?php
-                if(!empty($_GET["error"])):
-                    $error = $_GET["error"];
-                    
-                    if($error == "nombre"):
-                        $mensaje = "El campo nombre es obligatorio.";
-                    elseif($error == "existe"):
-                        $mensaje = "El producto que intenta subir ya existe.";
-                    
-                    else:
-                        $mensaje = "";
-                    endif;                    
-                ?>
 
-            <div class="col-6 offset-3 alert alert-danger alert-dismissible fade show" role="alert">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">
-                        &times;
-                    </span>
-                    <span class="sr-only">
-                        Close
-                    </span>
-                </button>
-                <strong>Error: </strong> <?= $mensaje ?>.
-            </div>
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-                <?php
-                endif;
-                ?>
+    if(empty($_POST["nombre"])):
+        header("Location:index.php?seccion=nuevo_producto&error=nombre");
+        die();
+    endif;
+    
+    
+    $nombre = trim(strtolower($_POST["nombre"]));
+     
+    if(is_dir("productos/$nombre")):
+        header("Location:index.php?seccion=nuevo_producto&error=existe");
+        die();
+    endif;
+    
+    
+    mkdir("../productos/$nombre");
+    
+    
+    if(!empty($_FILES["imagen"])):
+        $img = $_FILES["imagen"]["name"];
+    
+        if($_FILES["imagen"]["name"] && strpos($img,".jpg") === false):
+            header("Location:index.php?seccion=nuevo_producto&error=imagen");
+            die();
+        endif;
+    
+        $img  = $_FILES["imagen"];
+        $origen  = $_FILES["imagen"]["tmp_name"];
+        $destino = "../productos/$nombre/$nombre.png";
+    
+        move_uploaded_file($origen, $destino);
+    
+    endif;
+ 
+    $id_marca = $_POST["myselectM"];
+    $id_categoria = $_POST["myselect"];
+    $nombre = $_POST["nombre"];
+    $descripcion = $_POST["descripcion"];
+    $precio = $_POST["precio"];
 
-        </div>
-        <div class="row">
-            <div class="col-6 offset-3">
-                <form action="subir_imagen.php" method="POST" enctype="multipart/form-data" class="bg-dark p-3 mb-5 mt-3">
-                    <div class="form-group">
-                        <input type="text" name="nombre" max="3" id="nombre" class="form-control" placeholder="Nombre">
-                    </div>
+    if (isset($_POST['check1'])) {
+        $active = 1;
+    } else {
+        $active = 0;
+    }
+    
+    $errores = '';
+    
+    if (empty($nombre) or empty($id_marca) or empty($id_categoria) or empty($precio) or empty($descripcion) or empty($img)){
+        $errores .= '<li>Por favor completa los campos .</li>';
+        
+        
+    } else {     
 
-                    <div class="form-row">
-                        <div class="form-group mb-3 col-6">
-                            <input type="dropdown" name="nombre" max="3" id="nombre" class="form-control" placeholder="Marca">
-                        </div>    
-                        <div class="form-group mb-3 col-6">
-                            <input type="text" name="nombre" max="3" id="nombre" class="form-control" placeholder="Categoria">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" name="nombre" max="3" id="nombre" class="form-control" placeholder="Precio $">
-                    </div>
-                    
-                    <div class="form-group">
-                        <input type="text" name="nombre" max="3" id="nombre" class="form-control" placeholder="Descripcion">
-                    </div>
+        $statement = $con->prepare('SELECT * FROM productos WHERE nombre = :nombre LIMIT 1');
+        $statement->execute(array(':nombre' => $nombre));
+        $resultado = $statement->fetch();
 
-                    <div class="form-row ">
-                                <div class="input-group">
-                                    <input type="checkbox" class="form-control-input" id="activo" > 
-                                    <label for="activo"class="control-label txt-w" >Activa</label>  
-                                </div>
-                    </div>
-                    <div class="form-group">
-                        <input type="file" accept="image/jpeg" class="form-control-file txt-w mb-2" name="imagen" id="imagen" aria-describedby="help_imagen">
-                        <small id="help_imagen" class="form-text text-muted txt-w">La imágen del producto debe estar en formato JPG.</small>
-                    </div> 
+        if($resultado != false) {
+            $errores .= '<li>El procducto ya existe, por favor ingresa uno diferente.</li>';
+        }
 
-                    <button type="submit" class="btn btn-success btn-lg btn-block">Agregar producto</button>
-                </form>
-            </div>
-        </div>
-    </div>
-</section>
+    }
+
+    if ($errores == '') {
+        $sql = "INSERT INTO productos(id_marca,id_categoria,nombre,img,descripcion,precio,active) VALUES ('$id_marca', '$id_categoria','$nombre','$img', '$descripcion', '$precio', '$active');";
+        $count = $con->exec($sql);
+        
+        header("Location: index.php?seccion=listado_productos");
+    }
+    
+}
+require 'Views/nuevo_producto_view.php';

@@ -107,6 +107,7 @@
                                     <button type="submit" class="btn btn-info btn-sm">M</button>
                                     <button type="submit" class="btn btn-danger btn-sm">X</button>
                                 </form>
+                                <button type="submit" class="btn btn-white btn-sm mt-3" href="#">Ver comentarios</button>
                             </td>
                         </tr>
                             <?php

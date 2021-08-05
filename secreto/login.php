@@ -12,6 +12,7 @@ if(isset($_SESSION['usuario'])){
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $usuario = filter_var(strtolower($_POST["usuario"]), FILTER_SANITIZE_STRING);
     $password = $_POST["password"];
+    $admin = $_POST["admin"];
     $password = hash('sha512', $password);
 
     $errores = '';
@@ -22,10 +23,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $resultado = $statement->fetch();
     if ($resultado !== false) {
         $_SESSION['usuario'] = $usuario;
-//SELECT usuario,admin FROM `usuarios` WHERE admin=1;
-       
         
         header('Location: ../panel/index.php');
+        //header('Location: ../index.php');     
     } else {
         $errores .= '<li>Datos Incorrectos</li>';
     }

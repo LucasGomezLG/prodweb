@@ -67,8 +67,29 @@ if(!isset($_SESSION['usuario'])){
                 require_once("secciones/Altas/nuevo_usuario.php");   
             else if($seccion == "nueva_marca")
                 require_once("secciones/Altas/nueva_marca.php"); 
-
-
+//M - Modificar
+            else if($seccion == "modificar_producto")
+                require_once("secciones/Modificar/modificar_producto.php");
+            else if($seccion == "modificar_categoria")
+                require_once("secciones/Modificar/modificar_categoria.php");
+            else if($seccion == "modificar_subcategoria")
+                require_once("secciones/Modificar/modificar_subcategoria.php");
+            else if($seccion == "modificar_usuario")
+                require_once("secciones/Modificar/modificar_usuario.php");   
+            else if($seccion == "modificar_marca")
+                require_once("secciones/Modificar/modificar_marca.php");
+//B - Bajas 
+            else if($seccion == "borrar_producto")
+                require_once("secciones/Bajas/borrar_producto.php");
+            else if($seccion == "borrar_categoria")
+                require_once("secciones/Bajas/borrar_categoria.php");
+            else if($seccion == "borrar_subcategoria")
+                require_once("secciones/Bajas/borrar_subcategoria.php");
+            else if($seccion == "borrar_usuario")
+                require_once("secciones/Bajas/borrar_usuario.php");   
+            else if($seccion == "borrar_marca")
+                require_once("secciones/Bajas/borrar_marca.php");
+//-
             else
                 require_once("../secciones/error.php");
         else:
