@@ -70,7 +70,16 @@
                         </div>
 
                         <div class="form-row">
-                            <div class="dropdown mb-3 col-6">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="precio" max="3" id="precio" class="form-control" placeholder="Precio $">
+                        </div>
+
+                        <div class="form-group">
+                            <input type="text" name="descripcion" max="3" id="descripcion" class="form-control" placeholder="Descripcion">
+                        </div>
+                        <div class="form-row">
+                            <div class="dropdown  col-4">
                                 <select class="btn btn-info dropdown-toggle" data-toggle="dropdown" name="myselectM" id="myselectM">
                                     <option value="0">Marcas</option>
                                     <?php
@@ -85,7 +94,7 @@
 
                                 </select>
                             </div>
-                            <div class="dropdown mb-3 col-6">
+                            <div class="dropdown  col-4">
                                 <select class="btn btn-info dropdown-toggle" data-toggle="dropdown" name="myselect" id="myselect">
                                     <option value="0">categorias</option>
                                     <?php
@@ -100,25 +109,16 @@
 
                                 </select>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" name="precio" max="3" id="precio" class="form-control" placeholder="Precio $">
-                        </div>
 
-                        <div class="form-group">
-                            <input type="text" name="descripcion" max="3" id="descripcion" class="form-control" placeholder="Descripcion">
-                        </div>
-
-                        <div class="form-row ">
-                            <div class="input-group">
-                                <input type="checkbox" id="check1">
-                                <label class="control-label txt-w">Activa</label>
+                            <div class="form-group mt-3">
+                                <div class="input-group">
+                                    <input type="checkbox" id="check1">
+                                    <label class="control-label txt-w">Activa</label>
+                                </div>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="imagen" class="txt-w">
-                                Foto
-                            </label>
+                            <label for="imagen" class="txt-w"> Foto </label>
                             <input type="file" accept="image/jpeg" class="form-control-file txt-w mb-2" name="imagen" id="imagen" aria-describedby="help_imagen">
                             <small id="help_imagen" class="form-text text-muted txt-w">La imágen del producto debe estar en formato JPG.</small>
                         </div>

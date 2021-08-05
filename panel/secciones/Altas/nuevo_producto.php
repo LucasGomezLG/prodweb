@@ -54,10 +54,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $descripcion = $_POST["descripcion"];
     $precio = $_POST["precio"];
 
-    if (isset($_POST['check1'])) {
+    if (isset($_POST['check1'])){
         $active = 1;
-    } else {
-        $active = 0;
+        } else {
+            $active = 0;
     }
     
     $errores = '';
