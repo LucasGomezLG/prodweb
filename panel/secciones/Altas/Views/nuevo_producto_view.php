@@ -112,7 +112,7 @@
 
                             <div class="form-group mt-3">
                                 <div class="input-group">
-                                    <input type="checkbox" id="check1">
+                                    <input type="checkbox" name="check1">
                                     <label class="control-label txt-w">Activa</label>
                                 </div>
                             </div>

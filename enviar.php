@@ -9,6 +9,7 @@
     $nombre=$_POST["nombre"];
     $correo=$_POST["correo"];
     $telefono=$_POST["telefono"];
+    $area = $_POST["area"];
     $consulta=$_POST["consulta"];
     $check="";
     if(isset($_POST["check"])){
@@ -17,7 +18,7 @@
     
     
     
-    header("Location: index.php?seccion=gracias&&nombre=$nombre&&correo=$correo&&telefono=$telefono&&consulta=$consulta&&check=$check");
+    header("Location: index.php?seccion=gracias&&nombre=$nombre&&correo=$correo&&telefono=$telefono&&area=$area&&consulta=$consulta&&check=$check");
 
   
 

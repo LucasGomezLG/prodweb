@@ -53,14 +53,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $nombre = $_POST["nombre"];
     $descripcion = $_POST["descripcion"];
     $precio = $_POST["precio"];
-
-    if (isset($_POST['check1'])){
-        $active = 1;
-        } else {
-            $active = 0;
-    }
-    
+     
     $errores = '';
+
+    if (isset($_POST['check1'])) {
+                                    $active = 1;
+                                } else {
+                                    $active = 0;
+                                }
     
     if (empty($nombre) or empty($id_marca) or empty($id_categoria) or empty($precio) or empty($descripcion) or empty($img)){
         $errores .= '<li>Por favor completa los campos .</li>';

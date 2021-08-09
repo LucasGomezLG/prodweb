@@ -76,6 +76,7 @@
                             <th>Nombre</th>
                             <th>Imagen</th>
                             <th>Descripción</th>
+                            <th>Activo</th>
                             <th>Acciones</th>
                         </tr>
                     </thead>
@@ -100,7 +101,10 @@
                             </td>   
                             <td class="align-middle">
                                 <?php echo $row['descripcion']?>
-                            </td>      
+                            </td>
+                            <td class="align-middle">
+                                <?php echo $row['active']?>
+                            </td>       
                             <td class="align-middle" style="width: 180px;">
                                 <form action="borrar_imagen.php" method="post">
                                     <input type="hidden" value="<?= $productos ?>" name="id">
