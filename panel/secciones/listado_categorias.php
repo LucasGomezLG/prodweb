@@ -1,61 +1,58 @@
-<?php 
-    
-    if(!defined("ACCESO")){
-        header("Location: ../index.php?seccion=listado_categorias");
-    }
+<?php
+
+if (!defined("ACCESO")) {
+    header("Location: ../index.php?seccion=listado_categorias");
+}
 
 ?>
 
-    <?php
-            if(!empty($_GET["ok"])):
-                $ok = $_GET["ok"];
-                if($ok == "cargado"){
-                    $mensaje = "La categoria ha sido cargada correctamente.";
+<?php
+if (!empty($_GET["ok"])) :
+    $ok = $_GET["ok"];
+    if ($ok == "cargado") {
+        $mensaje = "La categoria ha sido cargada correctamente.";
+    } elseif ($ok == "borrado") {
+        $mensaje = "La categoria " . ucfirst(nombre($_GET["nombre"])) . " ha sido eliminada correctamente.";
+    }
+?>
 
-                }elseif($ok == "borrado"){
-                    $mensaje = "La categoria ".ucfirst(nombre($_GET["nombre"]))." ha sido eliminada correctamente.";
-                }
-    ?>
+    <div id="Mensaje" class="container mt-4">
+        <div class="alert alert-success alert-dismissible fade show col-12" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                <span class="sr-only">Close</span>
+            </button>
+            <p><?= $mensaje; ?></p>
+        </div>
+    </div>
 
-            <div id="Mensaje" class="container mt-4">
-                <div class="alert alert-success alert-dismissible fade show col-12" role="alert">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                        <span class="sr-only">Close</span>
-                    </button>
-                    <p><?= $mensaje; ?></p>
-                </div>
-            </div>
+<?php
+endif;
 
-    <?php
-            endif;        
-        
-            if(!empty($_GET["error"])):
-            $error = $_GET["error"];
+if (!empty($_GET["error"])) :
+    $error = $_GET["error"];
 
-                if($error == "sin_evento"){
-                $mensaje = "Error!! Seleccione un evento a eliminar.";
+    if ($error == "sin_evento") {
+        $mensaje = "Error!! Seleccione un evento a eliminar.";
+    } elseif ($error == "error_evento") {
+        $mensaje = "Error!! Selecciono un evento que no existe en el listado.";
+    }
 
-                }elseif($error == "error_evento"){
-                $mensaje = "Error!! Selecciono un evento que no existe en el listado.";
+?>
+    <div class="container mt-4">
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                <span class="sr-only">Close</span>
+            </button>
+            <p><?= $mensaje; ?></p>
+        </div>
+    </div>
 
-            }
+<?php
+endif;
+?>
 
-    ?>
-            <div class="container mt-4">
-                <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                        <span class="sr-only">Close</span>
-                    </button>
-                    <p><?= $mensaje; ?></p>
-                </div>
-            </div>
-
-    <?php
-        endif;
-    ?>
-    
 
 <section id="Tabla">
     <div class="container">
@@ -64,65 +61,66 @@
                 <div>
                     <h1 class="text-center mt-4 h1-x">Listado de categorias</h1>
                 </div>
-                <div>                           
-                <a class="btn btn-success float-right mb-2 ml-5" href="index.php?seccion=nueva_categoria" role="button">Agregar nueva categoria</a>
+                <div>
+                    <a class="btn btn-success float-right mb-2 ml-5" href="index.php?seccion=nueva_categoria" role="button">Agregar nueva categoria</a>
                 </div>
-                <div>                           
-                <a class="btn btn-info float-right mb-2" href="index.php?seccion=listado_subcategorias" role="button">Ver subcategoria</a>
+                <div>
+                    <a class="btn btn-info float-right mb-2" href="index.php?seccion=listado_subcategorias" role="button">Ver subcategoria</a>
                 </div>
 
-                <table class="table table-striped table-dark table-bordered table-hover text-center mb-5">                            
+                <table class="table table-striped table-dark table-bordered table-hover text-center mb-5">
                     <thead class="thead-light">
                         <tr>
                             <th>Codigo</th>
                             <th>Nombre</th>
                             <th>Activa</th>
-                            <th>Accion</th>                            
+                            <th>Accion</th>
                         </tr>
                     </thead>
                     <tbody>
 
-                            <?php 
-                            $cat = new Categorias($con);
-                            foreach($cat->getCategorias() as $row){ 
-                            ?>
+                        <?php
+                        $cat = new Categorias($con);
+                        foreach ($cat->getCategorias() as $row) {
+                        ?>
 
-                        <tr>
-                            <td class="align-middle">
-                                <?php echo $row['id_categoria']?>
-                            </td>
-                            <td class="align-middle">
-                                <?php echo $row['nombre']?>
-                            </td>                                
-                            <td class="align-middle overflow-auto">
-                                <?php 
-                                
-                                if ($row['active'] == 1) {
-                                    echo 'Si';
-                                } else {
-                                    echo 'No';
-                                }?>
-                            </td>                           
-                            
-                            <td class="align-middle">
-                                <form action="borrar_evento.php" method="post">
-                                    <input type="hidden" value="<?= $eventos ?>" name="id">
-                                    <button type="submit" class="btn btn-info btn-sm">M</button>
-                                    <button type="submit" class="btn btn-danger btn-sm">X</button>
-                                </form>
-                            </td>
-                        </tr>
+                            <tr>
+                                <td class="align-middle">
+                                    <?php echo $row['id_categoria'] ?>
+                                </td>
+                                <td class="align-middle">
+                                    <?php echo $row['nombre'] ?>
+                                </td>
+                                <td class="align-middle overflow-auto">
+                                    <?php
 
-                            <?php
-                            }
-                            ?>  
-                            
+                                    if ($row['active'] == 1) {
+                                        echo 'Si';
+                                    } else {
+                                        echo 'No';
+                                    } ?>
+                                </td>
+
+                                <td class="align-middle">
+                                    <form action="borrar_evento.php" method="post">
+                                        <input type="hidden" value="<?= $eventos ?>" name="id">
+                                        <button type="submit" class="btn btn-info btn-sm">M</button>
+                                    </form>
+                                    <form action="index.php?seccion=borrar_categoria" method="POST">
+                                        <input type='hidden' name='id_categoria' value='<?php echo $row['id_categoria'] ?>' />
+                                        <button type="submit" class="btn btn-danger txt-w btn-sm">X</button>
+                                    </form>
+                                </td>
+                            </tr>
+
+                        <?php
+                        }
+                        ?>
+
 
                     </tbody>
-                </table>        
+                </table>
             </div>
         </div>
     </div>
 </section>
-
-        

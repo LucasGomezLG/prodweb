@@ -38,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $sql = "INSERT INTO categorias(nombre,id_padre,active) VALUES ('$nombre','$id_padre','$active');";
         $count = $con->exec($sql);
         
-        header("Location: ../listado_categorias.php");
+        header("Location: index.php?seccion=listado_categorias");
     }
     
 }

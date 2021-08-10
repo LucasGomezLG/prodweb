@@ -7,16 +7,16 @@ if(!isset($_SESSION['usuario'])){
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-    $id_marca = $_POST["id_marca"];
+    $id_producto = $_POST["id_producto"];
     
     $errores = '';
     
     if ($errores == '') {
-        $sql = "DELETE FROM marcas WHERE id_marca = '$id_marca';";
+        $sql = "DELETE FROM productos WHERE id_producto = '$id_producto';";
         $count = $con->exec($sql);
         
-        header("Location: index.php?seccion=listado_marcas");
+        header("Location: index.php?seccion=listado_productos");
     }
     
 }
-require 'index.php?seccion=listado_marcas';
+require 'index.php?seccion=listado_productos';

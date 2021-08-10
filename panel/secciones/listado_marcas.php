@@ -9,7 +9,7 @@ if (!empty($_GET["ok"])) :
     if ($ok == "cargado") {
         $mensaje = "La categoria ha sido cargada correctamente.";
     } elseif ($ok == "borrado") {
-        $mensaje = "La categoria " . ucfirst(nombre($_GET["nombre"])) . " ha sido eliminada correctamente.";
+        $mensaje = "La categoria " .ucfirst(nombre($_GET["nombre"])) . " ha sido eliminada correctamente.";
     }
 ?>
 
@@ -100,9 +100,11 @@ endif;
                                         <label name="marca" value="<?php echo $row['id_marca'] ?>"></label>
                                         <button type="submit" class="btn btn-info txt-w btn-sm ">M</button>
                                     </form>
-                                    <form action="index.php?seccion=borrar_marca&id=<?php echo $row['id_marca'];?>" method="POST">
-                                        <input type="submit" class="btn btn-danger txt-w  btn-sm" name="<?php echo $row['id_marca'];?>" id="<?php echo $row['id_marca'];?>" value="X"></input>
-                                        <label name="<?php echo $row['id_marca'];?>" id="<?php echo $row['id_marca'];?>" value="<?php echo $row['id_marca'];?>"></label>
+                                    <form action="index.php?seccion=borrar_marca" method="POST">
+
+                                        <input type='hidden' name='id_marca' value='<?php echo $row['id_marca'] ?>' />
+                                        <button type="submit" class="btn btn-danger txt-w btn-sm">X</button>
+
                                     </form>
                                 </td>
                             </tr>
