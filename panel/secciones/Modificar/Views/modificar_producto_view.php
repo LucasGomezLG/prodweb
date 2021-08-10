@@ -28,7 +28,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <h1 class="text-center h1-x mt-4 mb-4">Cargar producto</h1>
+                    <h1 class="text-center h1-x mt-4 mb-4">Modificar producto</h1>
                 </div>
 
                 <?php
@@ -64,7 +64,8 @@
             </div>
             <div class="row">
                 <div class="col-6 offset-3">
-                    <form action="index.php?seccion=nuevo_producto" method="POST" enctype="multipart/form-data" class="bg-dark p-3 mb-5 mt-3">
+                    <form action="index.php?seccion=modificar_producto" method="POST" enctype="multipart/form-data" class="bg-dark p-3 mb-5 mt-3">
+                        <input type='hidden' name='id_producto' value='<?php echo $_POST['id_producto'] ?>' />
                         <div class="form-group">
                             <input type="text" name="nombre" max="3" id="nombre" class="form-control" placeholder="Nombre">
                         </div>
@@ -123,7 +124,7 @@
                             <small id="help_imagen" class="form-text text-muted txt-w">La imágen del producto debe estar en formato JPG.</small>
                         </div>
 
-                        <button type="submit" class="btn btn-success btn-lg btn-block">Agregar producto</button>
+                        <button type="submit" class="btn btn-success btn-lg btn-block">Guardar</button>
                     </form>
                 </div>
             </div>

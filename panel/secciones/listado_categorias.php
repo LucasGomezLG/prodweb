@@ -102,11 +102,13 @@ endif;
                                 </td>
 
                                 <td class="align-middle">
-                                <form action="index.php?seccion=modificar_categoria" method="POST">
+
+                                    <form action="index.php?seccion=modificar_categoria" method="POST">
                                         <input type='hidden' name='id_categoria' value='<?php echo $row['id_categoria'] ?>' /> 
                                         <input type='hidden' name='nombre' value='<?php echo $row['nombre'] ?>' /> 
                                         <button type="submit" class="btn btn-info txt-w btn-sm ">M</button>
                                     </form>
+                                    
                                     <form action="index.php?seccion=borrar_categoria" method="POST">
                                         <input type='hidden' name='id_categoria' value='<?php echo $row['id_categoria'] ?>' />
                                         <button type="submit" class="btn btn-danger txt-w btn-sm">X</button>

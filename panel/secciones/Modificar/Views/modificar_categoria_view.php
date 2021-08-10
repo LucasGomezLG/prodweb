@@ -73,7 +73,7 @@
                         <input type='hidden' name='id_categoria' value='<?php echo $_POST['id_categoria'] ?>' /> 
                         <div class="form-row">
                         <div class="form-group mb-3 col-6">
-                            <input type="text" name="nombre" max="3" id="nombre" class="form-control" placeholder="Categoria">
+                            <input type="text" name="nombre" max="3" id="nombre" class="form-control" >
                         </div>    
                         <div class="input-group mb-3 col-6">
                                     <input type="checkbox" name="check1">

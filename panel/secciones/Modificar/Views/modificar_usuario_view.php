@@ -26,7 +26,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h1 class="text-center h1-x mt-4 mb-4">Cargar usuario</h1>
+                <h1 class="text-center h1-x mt-4 mb-4">Modificar usuario</h1>
             </div>    
 
                 <?php
@@ -66,8 +66,8 @@
                     <div class="d-flex justify-content-center mb-3">
                     </div>
                     <div class="form_container">
-                        <form action="index.php?seccion=nuevo_usuario" method="POST" class="bg-dark p-3 mb-5 mt-3">
-
+                        <form action="index.php?seccion=modificar_usuario" method="POST" class="bg-dark p-3 mb-5 mt-3">
+                        <input type='hidden' name='id_user' value='<?php echo $_POST['id_user'] ?>' /> 
                             <div class="form-row">
                                 <div class="input-group mb-3 col-6">
                                     <input type="text" name="nombre" class="form-control" placeholder="Nombre">
@@ -116,7 +116,7 @@
                             <?php endif;?>
 
                             <div class="d-flex justify-content-center mt-3">
-                                <button type="submit" class="btn btn-success btn-lg btn-block" >Agregar nuevo usuario</button>
+                                <button type="submit" class="btn btn-success btn-lg btn-block" >Guardar</button>
                             </div>
                         </form>
                     </div>

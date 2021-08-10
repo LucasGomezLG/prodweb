@@ -96,15 +96,16 @@ endif;
                                     } ?>
                                 </td>
                                 <td>
+
                                     <form action="index.php?seccion=modificar_marca" method="POST">
                                         <input type='hidden' name='id_marca' value='<?php echo $row['id_marca'] ?>' /> 
                                         <input type='hidden' name='nombre' value='<?php echo $row['nombre'] ?>' /> 
                                         <button type="submit" class="btn btn-info txt-w btn-sm ">M</button>
                                     </form>
+
                                     <form action="index.php?seccion=borrar_marca" method="POST">
                                         <input type='hidden' name='id_marca' value='<?php echo $row['id_marca'] ?>' />
                                         <button type="submit" class="btn btn-danger txt-w btn-sm">X</button>
-
                                     </form>
                                 </td>
                             </tr>

@@ -73,6 +73,7 @@ endif;
                             <th>Nombre</th>
                             <th>Imagen</th>
                             <th>Descripción</th>
+                            <th>Destacado</th>
                             <th>Activo</th>
                             <th>Acciones</th>
                         </tr>
@@ -102,17 +103,28 @@ endif;
                                 <td class="align-middle">
                                     <?php echo $row['active'] ?>
                                 </td>
+                                <td class="align-middle">
+                                    <?php echo $row['destacado'] ?>
+                                </td>
                                 <td class="align-middle" style="width: 180px;">
-                                <form action="index.php?seccion=modificar_producto" method="POST">
+
+                                    <form action="index.php?seccion=modificar_producto" method="POST">
                                         <input type='hidden' name='id_producto' value='<?php echo $row['id_producto'] ?>' /> 
+                                        <input type='hidden' name='nombre' value='<?php echo $row['nombre'] ?>' />
+                                        <input type='hidden' name='myselectM' value='<?php echo $row['id_marca'] ?>' /> 
+                                        <input type='hidden' name='myselect' value='<?php echo $row['id_categoria'] ?>' />
+                                        <input type='hidden' name='descripcion' value='<?php echo $row['descripcion'] ?>' />
+                                        <input type='hidden' name='precio' value='<?php echo $row['precio'] ?>' />
+                                        <input type='hidden' name='active' value='<?php echo $row['active'] ?>' />
                                         <button type="submit" class="btn btn-info txt-w btn-sm ">M</button>
                                     </form>
+
                                     <form action="index.php?seccion=borrar_producto" method="POST">
                                         <input type='hidden' name='nombre' value='<?php echo $row['nombre'] ?>' />
                                         <input type='hidden' name='id_producto' value='<?php echo $row['id_producto'] ?>' />
                                         <button type="submit" class="btn btn-danger txt-w btn-sm">X</button>
-
                                     </form>
+                                    
                                     <button type="submit" class="btn btn-white btn-sm mt-3" href="#">Ver comentarios</button>
                                 </td>
                             </tr>

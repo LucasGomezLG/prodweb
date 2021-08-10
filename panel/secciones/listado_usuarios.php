@@ -112,15 +112,21 @@ endif;
                                     } ?>
                                 </td>
                                 <td class="align-middle" style="width: 180px;">
-                                <form action="index.php?seccion=modificar_usuario" method="POST">
-                                        <input type='hidden' name='id_usuario' value='<?php echo $row['id_usuario'] ?>' /> 
+
+                                    <form action="index.php?seccion=modificar_usuario" method="POST">
+                                        <input type='hidden' name='id_user' value='<?php echo $row['id_user'] ?>' /> 
+                                        <input type='hidden' name='nombre' value='<?php echo $row['nombre'] ?>' /> 
+                                        <input type='hidden' name='apellido' value='<?php echo $row['apellido'] ?>' /> 
+                                        <input type='hidden' name='email' value='<?php echo $row['email'] ?>' /> 
+                                        <input type='hidden' name='password' value='<?php echo $row['pass'] ?>' /> 
+                                        <input type='hidden' name='admin' value='<?php echo $row['admin'] ?>' /> 
+                                        <input type='hidden' name='usuario' value='<?php echo $row['usuario'] ?>' /> 
                                         <button type="submit" class="btn btn-info txt-w btn-sm ">M</button>
                                     </form>
-                                    <form action="index.php?seccion=borrar_usuario" method="POST">
 
+                                    <form action="index.php?seccion=borrar_usuario" method="POST">
                                         <input type='hidden' name='id_usuario' value='<?php echo $row['id_user'] ?>' />
                                         <button type="submit" class="btn btn-danger txt-w btn-sm">X</button>
-
                                     </form>
                                 </td>
                             </tr>

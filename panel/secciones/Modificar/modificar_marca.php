@@ -17,10 +17,23 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
     
     $errores = '';
-    
+
+    if (empty($nombre)){
+        $errores .= '.';
+        
+        
+    } else {     
+        $statement = $con->prepare('SELECT * FROM marcas WHERE nombre = :nombre LIMIT 1');
+        $statement->execute(array(':nombre' => $nombre));
+        $resultado = $statement->fetch();
+
+        if($resultado != false) {
+            $errores .= '..';
+        }
+
+    }
     if ($errores == '') {
-        $sql = "UPDATE marcas SET nombre='[value $nombre]', active='[value $active]' 
-        WHERE id_marca='[value $id_marca]'";
+        $sql = "UPDATE marcas SET nombre='$nombre', active='$active' WHERE id_marca='$id_marca'";
 
         $count = $con->exec($sql);
         

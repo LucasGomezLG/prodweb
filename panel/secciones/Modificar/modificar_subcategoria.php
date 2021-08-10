@@ -7,7 +7,7 @@ if(!isset($_SESSION['usuario'])){
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-    
+    $id_categoria= $_POST["id_categoria"];
     $nombre = $_POST["nombre"];
     $id_padre = $_POST["myselect"];
    
@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $errores = '';
         
     if (empty($nombre)){
-        $errores .= '<li>Por favor completa los campos.</li>';
+        $errores .= '            .. ';
           
     } else {     
 
@@ -34,18 +34,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $resultado = $statement->fetch();
 
         if($resultado != false) {
-            $errores .= '<li>La subcategoria ya existe, por favor ingresa una categoria diferente.</li>';
+            $errores .= '          .';
+        }else{
+            $errores .= '';
         }
 
     }
 
     if ($errores == '') {
-        $sql = "INSERT INTO categorias(nombre,id_padre,active) VALUES ('$nombre','$id_padre','$active');";
+        $sql = "UPDATE categorias SET nombre='$nombre',id_padre ='$id_padre', active ='$active' WHERE id_categoria = '$id_categoria';";
         $count = $con->exec($sql);
         
         header("Location: index.php?seccion=listado_subcategorias");
     }
     
 }
-require 'Views/nueva_subcategoria_view.php';
+require 'Views/modificar_subcategoria_view.php';
 ?>
