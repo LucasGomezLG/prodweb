@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h1 class="text-center h1-x mt-4 mb-4">Modificar marca</h1>
+                <h1 class="text-center h1-x mt-4 mb-4">Cargar marca</h1>
             </div>    
 
                 <?php
@@ -38,9 +38,9 @@
         </div>
         <div class="row">
             <div class="col-6 offset-3">
-                <form action="index.php?seccion=modificar_marca" method="POST" class="bg-dark p-3 mb-5 mt-3">
+                <form action="index.php?seccion=nueva_marca" method="POST" class="bg-dark p-3 mb-5 mt-3">
                     <div class="form-group">
-                        <input type="text" name="nombre" max="3" id="nombre" class="form-control" placeholder="Nombre de la marca">
+                        <input type="text" name="nombre" max="3" id="nombre_marca" class="form-control" placeholder="Nombre de la marca">
                     </div> 
                     <div class="form-row ">
                                 <div class="input-group">
@@ -48,7 +48,7 @@
                                     <label class="control-label txt-w" >Activa</label>  
                                 </div>
                             </div>
-                    <button type="submit" class="btn btn-success btn-lg btn-block">Modificar marca</button>
+                    <button type="submit" class="btn btn-success btn-lg btn-block">Agregar nueva marca</button>
                 </form>
             </div>
         </div>

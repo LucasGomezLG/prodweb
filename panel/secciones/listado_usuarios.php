@@ -112,9 +112,9 @@ endif;
                                     } ?>
                                 </td>
                                 <td class="align-middle" style="width: 180px;">
-                                    <form action="borrar_imagen.php" method="post">
-                                        <input type="hidden" value="<?= $productos ?>" name="id">
-                                        <button type="submit" class="btn btn-info btn-sm">M</button>
+                                <form action="index.php?seccion=modificar_usuario" method="POST">
+                                        <input type='hidden' name='id_usuario' value='<?php echo $row['id_usuario'] ?>' /> 
+                                        <button type="submit" class="btn btn-info txt-w btn-sm ">M</button>
                                     </form>
                                     <form action="index.php?seccion=borrar_usuario" method="POST">
 

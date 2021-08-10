@@ -23,7 +23,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         
         
     } else {     
-//charlar esto------------------------------------------------------------
         $statement = $con->prepare('SELECT * FROM categorias WHERE nombre = :nombre LIMIT 1');
         $statement->execute(array(':nombre' => $nombre));
         $resultado = $statement->fetch();

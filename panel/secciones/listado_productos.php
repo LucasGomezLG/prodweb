@@ -94,7 +94,7 @@ endif;
                                     <?php echo $row['nombre'] ?>
                                 </td>
                                 <td class="align-middle">
-                                    <img src="../productos/galeria/<?php echo $row['img'] ?>" alt="<?php echo $row['nombre'] ?>" width="70">
+                                    <img src="../productos/<?php echo $row['nombre']?>/<?php echo $row['img'] ?>" alt="<?php echo $row['nombre'] ?>" width="70">
                                 </td>
                                 <td class="align-middle">
                                     <?php echo $row['descripcion'] ?>
@@ -103,12 +103,12 @@ endif;
                                     <?php echo $row['active'] ?>
                                 </td>
                                 <td class="align-middle" style="width: 180px;">
-                                    <form action="borrar_imagen.php" method="post">
-                                        <input type="hidden" value="<?= $productos ?>" name="id">
-                                        <button type="submit" class="btn btn-info btn-sm">M</button>
+                                <form action="index.php?seccion=modificar_producto" method="POST">
+                                        <input type='hidden' name='id_producto' value='<?php echo $row['id_producto'] ?>' /> 
+                                        <button type="submit" class="btn btn-info txt-w btn-sm ">M</button>
                                     </form>
                                     <form action="index.php?seccion=borrar_producto" method="POST">
-
+                                        <input type='hidden' name='nombre' value='<?php echo $row['nombre'] ?>' />
                                         <input type='hidden' name='id_producto' value='<?php echo $row['id_producto'] ?>' />
                                         <button type="submit" class="btn btn-danger txt-w btn-sm">X</button>
 

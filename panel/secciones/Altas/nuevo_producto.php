@@ -77,9 +77,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
 
     }
+    $nombre_img = $nombre . ".png";
 
     if ($errores == '') {
-        $sql = "INSERT INTO productos(id_marca,id_categoria,nombre,img,descripcion,precio,active) VALUES ('$id_marca', '$id_categoria','$nombre','$img', '$descripcion', '$precio', '$active');";
+        $sql = "INSERT INTO productos(id_marca,id_categoria,nombre,img,descripcion,precio,active) VALUES ('$id_marca', '$id_categoria','$nombre','$nombre_img', '$descripcion', '$precio', '$active');";
         $count = $con->exec($sql);
         
         header("Location: index.php?seccion=listado_productos");

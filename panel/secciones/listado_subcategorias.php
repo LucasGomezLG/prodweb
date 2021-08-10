@@ -103,9 +103,9 @@ endif;
                                 </td>
 
                                 <td class="align-middle">
-                                    <form action="borrar_evento.php" method="post">
-                                        <input type="hidden" value="<?= $eventos ?>" name="id">
-                                        <button type="submit" class="btn btn-info btn-sm">M</button>
+                                <form action="index.php?seccion=modificar_subcategoria" method="POST">
+                                        <input type='hidden' name='id_categoria' value='<?php echo $row['id_categoria'] ?>' /> 
+                                        <button type="submit" class="btn btn-info txt-w btn-sm ">M</button>
                                     </form>
                                     <form action="index.php?seccion=borrar_categoria" method="POST">
                                         <input type='hidden' name='id_categoria' value='<?php echo $row['id_categoria'] ?>' />

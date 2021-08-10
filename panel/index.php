@@ -83,8 +83,6 @@ if(!isset($_SESSION['usuario'])){
                 require_once("secciones/Bajas/borrar_producto.php");
             else if($seccion == "borrar_categoria")
                 require_once("secciones/Bajas/borrar_categoria.php");
-            else if($seccion == "borrar_subcategoria")
-                require_once("secciones/Bajas/borrar_subcategoria.php");
             else if($seccion == "borrar_usuario")
                 require_once("secciones/Bajas/borrar_usuario.php");   
             else if($seccion == "borrar_marca")
