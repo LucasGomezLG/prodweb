@@ -15,21 +15,41 @@ if(!isset($_SESSION['usuario'])){
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
+    $modificar = $_POST["modificar"];
+    
+    if(!empty($_POST["nombreViejo"])):
+        $nombreViejo = $_POST["nombreViejo"];
+    endif;
+
     if(empty($_POST["nombre"])):
         header("Location:index.php?seccion=nuevo_producto&error=nombre");
         die();
     endif;
-    
+
+    function rmDir_rf($carpeta)
+    {
+        $url = "productos/" . $carpeta . "/*";
+      foreach(glob("../productos/" . $carpeta . "/*") as $archivos_carpeta){
+        if (is_dir($archivos_carpeta)){
+          rmDir_rf($archivos_carpeta);
+        } else {
+        unlink($archivos_carpeta);
+        }
+      }
+      rmdir("../productos/" . $carpeta);
+     }
     
     $nombre = trim(strtolower($_POST["nombre"]));
      
-    if(is_dir("productos/$nombre")):
-        header("Location:index.php?seccion=nuevo_producto&error=existe");
-        die();
-    endif;
+    //if(is_dir("productos/$nombre")):
+    //    header("Location:index.php?seccion=nuevo_producto&error=existe");
+    //    die();
+    // endif;
     
-    
-    mkdir("../productos/$nombre");
+    if($modificar != 1){
+        rmDir_rf($nombreViejo);
+        mkdir("../productos/$nombre");
+    };
     
     
     if(!empty($_FILES["imagen"])):

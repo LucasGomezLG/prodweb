@@ -62,7 +62,10 @@ endif;
                     <h1 class="text-center mt-4 h1-x">Listado de productos</h1>
                 </div>
                 <div>
-                    <a class="btn btn-success float-right mb-2" href="index.php?seccion=nuevo_producto" role="button">Agregar nuevo producto</a>
+                    <a class="btn btn-primary float-right  mr-2 mb-2" href="index.php?seccion=nuevo_producto" role="button">Agregar nuevo producto</a>
+                    <!--<a class="btn btn-info float-right  mr-2 mb-2" href="index.php?seccion=filtrar_categoria" role="button">Filtrar por categoria</a>
+                    <a class="btn btn-dark float-right txt-w mr-2 mb-2" href="index.php?seccion=filtrar_subcategoria" role="button">Filtrar por subcategoria</a>
+                    <a class="btn btn-success float-right mr-2 mb-2" href="index.php?seccion=listado_productos" role="button">Ver todos</a>-->
                 </div>
 
 
@@ -116,6 +119,7 @@ endif;
                                         <input type='hidden' name='descripcion' value='<?php echo $row['descripcion'] ?>' />
                                         <input type='hidden' name='precio' value='<?php echo $row['precio'] ?>' />
                                         <input type='hidden' name='active' value='<?php echo $row['active'] ?>' />
+                                        <input type='hidden' name='modificar' value='1' />
                                         <button type="submit" class="btn btn-info txt-w btn-sm ">M</button>
                                     </form>
 
@@ -124,8 +128,10 @@ endif;
                                         <input type='hidden' name='id_producto' value='<?php echo $row['id_producto'] ?>' />
                                         <button type="submit" class="btn btn-danger txt-w btn-sm">X</button>
                                     </form>
-                                    
-                                    <button type="submit" class="btn btn-white btn-sm mt-3" href="#">Ver comentarios</button>
+                                    <form action="index.php?seccion=listado_comentarios" method="POST" >
+                                    <input type='hidden' name='id_producto' value='<?php echo $row['id_producto'] ?>' />
+                                    <button type="submit" class="btn btn-white btn-sm mt-3">Ver comentarios</button>
+                                    </form>
                                 </td>
                             </tr>
                         <?php

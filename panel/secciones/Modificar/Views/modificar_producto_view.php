@@ -66,6 +66,7 @@
                 <div class="col-6 offset-3">
                     <form action="index.php?seccion=modificar_producto" method="POST" enctype="multipart/form-data" class="bg-dark p-3 mb-5 mt-3">
                         <input type='hidden' name='id_producto' value='<?php echo $_POST['id_producto'] ?>' />
+                        <input type='hidden' name='nombreViejo' value='<?php echo $_POST['nombre'] ?>' />
                         <div class="form-group">
                             <input type="text" name="nombre" max="3" id="nombre" class="form-control" placeholder="<?php echo $_POST['nombre'] ?>">
                         </div>
