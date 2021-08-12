@@ -4,6 +4,7 @@ include_once('inc/db_connect.php');
 include_once('class/classProducto.php');
 include_once('class/classMarca.php');
 include_once('class/classCategoria.php');
+include_once('class/classComentario.php');
 
 ?>
 
@@ -21,22 +22,29 @@ include_once('class/classCategoria.php');
 
             <div class="collapse navbar-collapse flex-row-reverse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
-
                     <?php 
-                        foreach($navbar as $nav): 
+                        foreach($navbar['common'] as $nav): 
                     ?>
-
                         <li class="nav-item <?= !empty($_GET["seccion"]) && $_GET["seccion"] == $nav["nombre"] ? "active" : "";  ?>">
                             <a class="nav-link" href="<?= $nav['ruta'] ?>">
                                 <?= $nav['nombre'] ?>
                             </a>
                         </li>
-
                     <?php
                         endforeach;
                     ?>
-                    
-
+                    <?php 
+                        $aux_navbar =  (isset($_SESSION['usuario'])) ? $navbar['logged_out'] : $navbar['logged_in'];
+                        foreach($aux_navbar as $nav): 
+                    ?>
+                        <li class="nav-item <?= !empty($_GET["seccion"]) && $_GET["seccion"] == $nav["nombre"] ? "active" : "";  ?>">
+                            <a class="nav-link" href="<?= $nav['ruta'] ?>">
+                                <?= $nav['nombre'] ?>
+                            </a>
+                        </li>
+                    <?php
+                        endforeach;
+                    ?>
                 </ul>
             </div>
 

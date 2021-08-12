@@ -1,26 +1,8 @@
 <?php
 
 // Navbar
-$navbar[] = [
-                "nombre" => "Inicio",
-                "ruta" => "index.php?seccion=inicio"                
-            ];
-$navbar[] = [
-                "nombre" => "Productos",            
-                "ruta" => "index.php?seccion=productos"                
-            ];
-//$navbar[] = [
-//                "nombre" => "Eventos",            
-//                "ruta" => "index.php?seccion=eventos"                
-//            ];
-$navbar[] = [
-                "nombre" => "Contacto",            
-                "ruta" => "index.php?seccion=contacto"                
-            ];
-$navbar[] = [
-                "nombre" => "Iniciar sesión",            
-                "ruta" => "panel/index.php"                
-            ];
+$navbar = ["common"=>[["nombre" => "Inicio","ruta" => "index.php?seccion=inicio"],["nombre" => "Productos","ruta" => "index.php?seccion=productos"],["nombre" => "Contacto","ruta" => "index.php?seccion=contacto"]],"logged_in"=>[["nombre" => "Iniciar sesión","ruta" => "panel/index.php"]],"logged_out"=>[["nombre" => "Cerrar Sesion","ruta" => "secreto/logout.php"]]];
+
 
 
 //Carousel

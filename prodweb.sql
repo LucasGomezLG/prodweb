@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.2
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 01-07-2020 a las 23:46:04
--- Versión del servidor: 10.4.10-MariaDB
--- Versión de PHP: 7.3.12
+-- Tiempo de generación: 11-08-2021 a las 17:57:00
+-- Versión del servidor: 10.4.20-MariaDB
+-- Versión de PHP: 8.0.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -51,7 +50,34 @@ INSERT INTO `categorias` (`id_categoria`, `nombre`, `id_padre`, `active`) VALUES
 (9, 'Manga Corta', 3, 1),
 (10, 'Manga Larga', 3, 1),
 (11, 'Con Cierre', 4, 1),
-(12, 'Sin Cierre', 4, 1);
+(12, 'Sin Cierre', 4, 1),
+(14, 'Irene alejandra', 0, 1),
+(29, 'aaaaaaaaaaa', 1, 0),
+(30, 'Blusa', 3, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `comentarios`
+--
+
+CREATE TABLE `comentarios` (
+  `id_comentario` int(11) NOT NULL,
+  `id_producto` int(11) NOT NULL,
+  `mail` varchar(50) CHARACTER SET armscii8 NOT NULL,
+  `ip` varchar(20) CHARACTER SET armscii8 NOT NULL,
+  `comentario` varchar(300) CHARACTER SET armscii8 NOT NULL,
+  `calificacion` int(11) NOT NULL,
+  `last_update` date NOT NULL,
+  `aprobado` tinyint(1) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `comentarios`
+--
+
+INSERT INTO `comentarios` (`id_comentario`, `id_producto`, `mail`, `ip`, `comentario`, `calificacion`, `last_update`, `aprobado`) VALUES
+(1, 1, 'lucas@gomez.com', '192.66.2.1', 'muy bonito', 5, '2021-08-10', 1);
 
 -- --------------------------------------------------------
 
@@ -72,7 +98,8 @@ CREATE TABLE `marcas` (
 INSERT INTO `marcas` (`id_marca`, `nombre`, `active`) VALUES
 (1, 'AdidasOriginals', 1),
 (2, 'AdidasRunning', 1),
-(3, 'AdidasFútbol', 1);
+(3, 'AdidasFútbol', 1),
+(7, 'Vaneda', 1);
 
 -- --------------------------------------------------------
 
@@ -98,8 +125,7 @@ CREATE TABLE `productos` (
 --
 
 INSERT INTO `productos` (`id_producto`, `id_marca`, `id_categoria`, `nombre`, `img`, `descripcion`, `precio`, `active`, `destacado`, `ranking`) VALUES
-(1, 2, 6, 'Zapatillas Phosphere', '1.jpg', 'Buscá nuevas experiencias. Estas zapatillas tienen un look muy llamativo y ofrecen una total comodidad. El exterior de tejido circular sin costuras sujeta el pie y la mediasuela ultrasuave les brinda una máxima amortiguación a cada uno de tus pasos. La suela de caucho de color y las 3 Tiras en el costado atraen todas las miradas.', 4500, 1, 0, 0),
-(2, 2, 6, 'Zapatillas Pureboost', '2.jpg', 'Sentí el ritmo de la ciudad bajo tus pies. Estas zapatillas diseñadas para correr durante todo el año ofrecen una comodidad y una tracción insuperables. Traen un exterior de nylon balístico que repele el agua y la nieve e incorporan amortiguación receptiva que te devuelve la energía a cada paso que das. La suela de gran resistencia al desgaste garantiza un excelente agarre incluso en superficies resbaladizas.', 7500, 1, 1, 0),
+(1, 2, 6, 'Zapatillas Phosphere', 'Zapatillas Phosphere.jpg', 'Buscá nuevas experiencias. Estas zapatillas tienen un look muy llamativo y ofrecen una total comodidad. El exterior de tejido circular sin costuras sujeta el pie y la mediasuela ultrasuave les brinda una máxima amortiguación a cada uno de tus pasos. La suela de caucho de color y las 3 Tiras en el costado atraen todas las miradas.', 4500, 1, 0, 0),
 (3, 3, 5, 'Botines Goletoo VII', '3.jpg', 'Dominá a tus rivales en los partidos intensos sobre canchas de terreno firme. Estos botines de fútbol con exterior sintético resistente y liviano les brindan una sensación de ligereza a tus pies. La suela te permite realizar movimientos veloces sin perder el control en césped natural seco.', 6300, 1, 0, 0),
 (4, 3, 5, 'Botines Malice', '4.jpg', 'Diseñados para zagueros, estos botines de rugby son una plataforma estable para penetrar corriendo y pateando. El exterior sintético con cordones asimétricos ofrece una superficie de impacto limpia, y los puntos en relieve del antepié aportan un mayor control de la pelota. La suela ligera imprime agilidad a tus movimientos en terreno blando.\r\n', 3500, 1, 0, 0),
 (5, 1, 8, 'Pantalón Flamestrike', '5.jpg', 'Esta colección se inspira en la cultura futbolera para darle nueva vida a algunos de los diseños adidas más emblemáticos de los años 90 y la década de 2000. Este pantalón deportivo luce un diseño Flamestrike en las piernas. Está confeccionado en un entretejido suave y presenta un moderno corte cónico.', 3400, 1, 1, 0),
@@ -136,8 +162,9 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id_user`, `usuario`, `pass`, `admin`, `nombre`, `apellido`, `email`) VALUES
-(2, 'juanjo', '3c9909afec25354d551dae21590bb26e38d53f2173b8d3dc3eee4c047e7ab1c1eb8b85103e3be7ba613b31bb5c9c36214dc9f14a42fd7a2fdb84856bca5c44c2', 1, 'juan', 'gomez', 'juan@gmail.com'),
-(3, 'philip', '3c9909afec25354d551dae21590bb26e38d53f2173b8d3dc3eee4c047e7ab1c1eb8b85103e3be7ba613b31bb5c9c36214dc9f14a42fd7a2fdb84856bca5c44c2', 0, 'Phlip', 'Johnson', 'johasd@fadfas.com');
+(3, 'el jp', '06df05371981a237d0ed11472fae7c94c9ac0eff1d05413516710d17b10a4fb6f4517bda4a695f02d0a73dd4db543b4653df28f5d09dab86f92ffb9b86d01e25', 1, 'j', 'p', 'jp@jp.com'),
+(4, 'flor', '4dff4ea340f0a823f15d3f4f01ab62eae0e5da579ccb851f8db9dfe84c58b2b37b89903a740e1ee172da793a6e79d560e5f7f9bd058a12a280433ed6fa46510a', 1, 'Florencia Carolina', 'Verratti', 'florenciaverratti@gmail.com'),
+(5, 'ale', '4dff4ea340f0a823f15d3f4f01ab62eae0e5da579ccb851f8db9dfe84c58b2b37b89903a740e1ee172da793a6e79d560e5f7f9bd058a12a280433ed6fa46510a', 0, 'Irene alejandra', 'Iwaniuk', 'siempreporsiempre3@gmail.com');
 
 --
 -- Índices para tablas volcadas
@@ -148,6 +175,13 @@ INSERT INTO `usuarios` (`id_user`, `usuario`, `pass`, `admin`, `nombre`, `apelli
 --
 ALTER TABLE `categorias`
   ADD PRIMARY KEY (`id_categoria`);
+
+--
+-- Indices de la tabla `comentarios`
+--
+ALTER TABLE `comentarios`
+  ADD PRIMARY KEY (`id_comentario`),
+  ADD KEY `id_producto_fk` (`id_producto`);
 
 --
 -- Indices de la tabla `marcas`
@@ -175,25 +209,41 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `categorias`
 --
 ALTER TABLE `categorias`
-  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+
+--
+-- AUTO_INCREMENT de la tabla `comentarios`
+--
+ALTER TABLE `comentarios`
+  MODIFY `id_comentario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `marcas`
 --
 ALTER TABLE `marcas`
-  MODIFY `id_marca` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_marca` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- Restricciones para tablas volcadas
+--
+
+--
+-- Filtros para la tabla `comentarios`
+--
+ALTER TABLE `comentarios`
+  ADD CONSTRAINT `id_producto_fk` FOREIGN KEY (`id_producto`) REFERENCES `productos` (`id_producto`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

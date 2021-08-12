@@ -25,6 +25,13 @@ class Categorias{
         //Esta funcion retorna listado de subcategorias.
     }
 
+    function getSubcategoriaById($id_categoria){
+        $sql = "SELECT * FROM categorias WHERE id_categoria = $id_categoria;";
+
+        return $this->con->query($sql, PDO::FETCH_ASSOC);
+
+        //Esta funcion retorna listado de subcategorias.
+    }
 
 
 }

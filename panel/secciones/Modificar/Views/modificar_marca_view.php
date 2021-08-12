@@ -41,7 +41,7 @@
                 <form action="index.php?seccion=modificar_marca" method="POST" class="bg-dark p-3 mb-5 mt-3">
                     <input type='hidden' name='id_marca' value='<?php echo $_POST['id_marca'] ?>' />
                     <div class="form-group">
-                        <input type="text" name="nombre" max="3" id="nombre_marca" class="form-control" >
+                        <input type="text" name="nombre" max="3" id="nombre_marca" class="form-control" placeholder="<?php echo $_POST['nombre'] ?>">
                     </div>
                     <div class="form-row ">
                         <div class="input-group">

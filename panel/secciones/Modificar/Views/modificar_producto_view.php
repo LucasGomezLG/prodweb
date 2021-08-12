@@ -67,17 +67,17 @@
                     <form action="index.php?seccion=modificar_producto" method="POST" enctype="multipart/form-data" class="bg-dark p-3 mb-5 mt-3">
                         <input type='hidden' name='id_producto' value='<?php echo $_POST['id_producto'] ?>' />
                         <div class="form-group">
-                            <input type="text" name="nombre" max="3" id="nombre" class="form-control" placeholder="Nombre">
+                            <input type="text" name="nombre" max="3" id="nombre" class="form-control" placeholder="<?php echo $_POST['nombre'] ?>">
                         </div>
 
                         <div class="form-row">
                         </div>
                         <div class="form-group">
-                            <input type="text" name="precio" max="3" id="precio" class="form-control" placeholder="Precio $">
+                            <input type="text" name="precio" max="3" id="precio" class="form-control" placeholder="<?php echo $_POST['precio'] ?>">
                         </div>
 
                         <div class="form-group">
-                            <input type="text" name="descripcion" max="3" id="descripcion" class="form-control" placeholder="Descripcion">
+                            <input type="text" name="descripcion" max="3" id="descripcion" class="form-control" placeholder="<?php echo $_POST['descripcion'] ?>">
                         </div>
                         <div class="form-row">
                             <div class="dropdown  col-4">
@@ -120,6 +120,7 @@
                         </div>
                         <div class="form-group">
                             <label for="imagen" class="txt-w"> Foto </label>
+
                             <input type="file" accept="image/jpeg" class="form-control-file txt-w mb-2" name="imagen" id="imagen" aria-describedby="help_imagen">
                             <small id="help_imagen" class="form-text text-muted txt-w">La imágen del producto debe estar en formato JPG.</small>
                         </div>

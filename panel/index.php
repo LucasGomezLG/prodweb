@@ -4,6 +4,7 @@ if(!isset($_SESSION['usuario'])){
     header('Location: ../secreto/login.php');
 }
     require_once("../class/classProducto.php");
+    require_once("../class/classComentario.php");
     require_once("../class/classUsuarios.php");
     require_once("../class/classCategoria.php");
     require_once("../class/classMarca.php");
@@ -56,6 +57,9 @@ if(!isset($_SESSION['usuario'])){
                 require_once("secciones/listado_marcas.php");
             else if($seccion == "listado_usuarios")
                 require_once("secciones/listado_usuarios.php"); 
+            else if($seccion == "listado_comentarios")
+                require_once("secciones/listado_comentarios.php"); 
+                
 //A - Altas
             else if($seccion == "nuevo_producto")
                 require_once("secciones/Altas/nuevo_producto.php");
@@ -78,6 +82,9 @@ if(!isset($_SESSION['usuario'])){
                 require_once("secciones/Modificar/modificar_usuario.php");   
             else if($seccion == "modificar_marca")
                 require_once("secciones/Modificar/modificar_marca.php");
+            else if($seccion == "modificar_aprobado")
+                require_once("secciones/Modificar/modificar_aprobado.php");
+                
 //B - Bajas 
             else if($seccion == "borrar_producto")
                 require_once("secciones/Bajas/borrar_producto.php");
@@ -87,6 +94,11 @@ if(!isset($_SESSION['usuario'])){
                 require_once("secciones/Bajas/borrar_usuario.php");   
             else if($seccion == "borrar_marca")
                 require_once("secciones/Bajas/borrar_marca.php");
+//-Filtros
+            else if($seccion == "filtrar_categoria")
+                require_once("secciones/Filtrado/filtrar_categoria.php");
+            else if($seccion == "filtrar_subcategoria")
+                require_once("secciones/Filtrado/filtrar_subcategoria.php");
 //-
             else
                 require_once("../secciones/error.php");

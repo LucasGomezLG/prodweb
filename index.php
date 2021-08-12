@@ -48,6 +48,8 @@
                 
                 else if($seccion == "detalles")
                     require_once("secciones/detalles.php");
+
+              
                     
                 else if($seccion == "contacto")
                     require("secciones/contacto.php");

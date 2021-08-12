@@ -70,10 +70,10 @@
                         <input type='hidden' name='id_user' value='<?php echo $_POST['id_user'] ?>' /> 
                             <div class="form-row">
                                 <div class="input-group mb-3 col-6">
-                                    <input type="text" name="nombre" class="form-control" placeholder="Nombre">
+                                    <input type="text" name="nombre" class="form-control" placeholder="<?php echo $_POST['nombre'] ?>">
                                 </div>
                                 <div class="input-group mb-3 col-6">
-                                    <input type="text" name="apellido" class="form-control" placeholder="Apellido">
+                                    <input type="text" name="apellido" class="form-control" placeholder="<?php echo $_POST['apellido'] ?>">
                                 </div>
                             </div>
 
@@ -82,7 +82,7 @@
                                     <div class="input-group-append">
                                         <span class="input-group-text"><i class="fas fa-at"></i></span>
                                     </div>
-                                    <input type="email" name="email" class="form-control" placeholder="Email">
+                                    <input type="email" name="email" class="form-control" placeholder="<?php echo $_POST['email'] ?>">
                                 </div>
                             </div>
 
@@ -91,14 +91,14 @@
                                     <div class="input-group-append">
                                         <span class="input-group-text"><i class="fas fa-user"></i></span>
                                     </div>
-                                    <input type="text" name="usuario" class="form-control" placeholder="Usuario">
+                                    <input type="text" name="usuario" class="form-control" placeholder="<?php echo $_POST['usuario'] ?>">
                                 </div>
 
                                 <div class="input-group mb-3 col-6">
                                     <div class="input-group-append">
                                         <span class="input-group-text"><i class="fas fa-key"></i></span>
                                     </div>
-                                    <input type="password" name="password" class="form-control" placeholder="Password">
+                                    <input type="password" name="password" class="form-control" placeholder="**************">
                                 </div>
                             </div>
                             <div class="form-row mb-3 col-6 ">

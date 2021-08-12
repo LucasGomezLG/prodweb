@@ -15,10 +15,9 @@ class Marca{
 
         //Esta funcion retorna listado de marcas
     }
-// no funciona jaja
-    function borrarMarca ($id_marca){
-        $sql = "DELETE FROM marcas WHERE id_marca = :id_marca";
-        $sql ->execute(array(':id_marca' => $id_marca));
+
+    function getMarcaById ($id_marca){
+        $sql = "SELECT nombre FROM marcas WHERE id_marca = $id_marca;";
         return $this->con->query($sql, PDO::FETCH_ASSOC);
     }
 
